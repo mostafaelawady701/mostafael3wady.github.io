@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مصطفى العوضي | فنان الرسم والستريمر</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --primary-dark: #4d0a9e;
+            --secondary: #ff6b6b;
+            --accent: #4dffea;
+            --light: #f8f9fa;
+            --dark: #121212;
+            --text-color: #333;
+            --text-secondary: #555;
+            --section-spacing: 6rem;
+            --border-radius: 20px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'El Messiri', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f9f7fe 0%, #e6e3f8 100%);
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%236a11cb" stroke-width="0.5" stroke-dasharray="5,5"/></svg>');
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* شريط التنقل */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'El Messiri', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            font-family: 'El Messiri', sans-serif;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* الصفحات */
+        .page {
+            display: none;
+            padding-top: 100px;
+            padding-bottom: 80px;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* قسم البطل */
+        .hero {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(106, 17, 203, 0.1) 0%, transparent 70%);
+            transform: rotate(30deg);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            font-family: 'El Messiri', sans-serif;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            box-shadow: var(--box-shadow);
+            font-family: 'El Messiri', sans-serif;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(106, 17, 203, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(106, 17, 203, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .hero-image {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%236a11cb" fill-opacity="0.1" d="M0,224L48,218.7C96,213,192,203,288,181.3C384,160,480,128,576,138.7C672,149,768,203,864,208C960,213,1056,171,1152,160C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        /* الأقسام العامة */
+        .section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 60px 40px;
+            margin-bottom: var(--section-spacing);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="none" stroke="%236a11cb" stroke-width="1" stroke-dasharray="5,5" d="M20,20 L80,20 L80,80 L20,80 Z"/></svg>');
+            opacity: 0.05;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-family: 'El Messiri', sans-serif;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 25px auto 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* قسم عني */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-family: 'El Messiri', sans-serif;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1543857778-c4a1a569e7bd?q=80&w=1935') center/cover;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+        }
+
+        /* قسم المواصفات */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .spec-card {
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.03) 0%, rgba(255, 107, 107, 0.03) 100%);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+            position: relative;
+        }
+
+        .spec-card::after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%236a11cb" opacity="0.1"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>');
+        }
+
+        .spec-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .spec-icon {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .spec-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-family: 'El Messiri', sans-serif;
+        }
+
+        .spec-info p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* قسم الدعم */
+        .donation-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .donation-text h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-family: 'El Messiri', sans-serif;
+        }
+
+        .donation-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .benefits {
+            margin-bottom: 2rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1.2rem;
+        }
+
+        .benefit-icon {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .donation-methods {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .method-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(106, 17, 203, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .method-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .method-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .method-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .method-card h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-family: 'El Messiri', sans-serif;
+            color: var(--primary);
+        }
+
+        .method-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .method-card .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+
+        .donation-visual {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .donation-visual h3 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: white;
+            padding: 1rem;
+            font-family: 'El Messiri', sans-serif;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* قسم البثوث */
+        .stream-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .stream-info h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-family: 'El Messiri', sans-serif;
+        }
+
+        .stream-info p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stream-schedule {
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.03) 0%, rgba(255, 107, 107, 0.03) 100%);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .stream-visual {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stream-overlay {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .live-badge {
+            background: var(--secondary);
+            color: white;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            font-family: 'El Messiri', sans-serif;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 107, 107, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+        }
+
+        /* قسم التواصل */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-family: 'El Messiri', sans-serif;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            background: white;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--box-shadow);
+            font-family: 'El Messiri', sans-serif;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(106, 17, 203, 0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(106, 17, 203, 0.1);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .social-link i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .info-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(106, 17, 203, 0.1);
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .info-card h4 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.4rem;
+            font-family: 'El Messiri', sans-serif;
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* الفوتر */
+        .footer {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 70px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="white" fill-opacity="0.05" d="M20,20 Q40,5 50,30 T80,20"></path></svg>');
+            background-size: 300px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            font-family: 'El Messiri', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-col p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-col h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-family: 'El Messiri', sans-serif;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-icons a:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            opacity: 0.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* استعلامات الوسائط */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content,
+            .donation-content,
+            .stream-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .donation-visual {
+                height: 300px;
+            }
+            
+            .section {
+                padding: 50px 30px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .donation-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 40px 20px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* رسالة النجاح */
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 2000;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            animation: popIn 0.5s ease;
+        }
+
+        @keyframes popIn {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .success-message h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'El Messiri', sans-serif;
+        }
+
+        .success-message p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .success-message .btn {
+            margin-top: 10px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل العلوي -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo" data-page="home">
+                <i class="fas fa-palette"></i>
+                <span>مصطفى العوضي</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-page="home">الرئيسية</a></li>
+                <li><a href="#about" class="nav-link" data-page="about">عني</a></li>
+                <li><a href="#specs" class="nav-link" data-page="specs">المواصفات</a></li>
+                <li><a href="#donations" class="nav-link" data-page="donations">الدعم</a></li>
+                <li><a href="#stream" class="nav-link" data-page="stream">البثوث</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- الصفحات -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>مرحبًا بكم في عالم الإبداع والرسم</h1>
+                    <br>
+                    <p>أنا مصطفى العوضي، فنان وستريمر مصري أبلغ 16 عامًا، أشارككم شغفي بالرسم والألعاب</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image"></div>
+        </div>
+    </div>
+
+    <div id="about" class="page">
+        <div class="container">
+            <div class="section">
+                <div class="section-header">
+                    <h2>معلومات عني</h2>
+                    <p>تعرف على الفنان وراء الشاشة</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>مرحبًا! أنا مصطفى العوضي</h3>
+                        <p>أنا فنان وستريمر مصري أبلغ من العمر 16 عامًا، شغفي بالرسم بدأ منذ الطفولة وأنا أطور مهاراتي يومًا بعد يوم. أحب مشاركة رحلتي الفنية مع متابعيني عبر البثوث المباشرة على يوتيوب وتويتش.</p>
+                        <p>بالإضافة إلى الرسم، أستمتع بلعب الألعاب الإلكترونية والتفاعل مع مجتمع المتابعين الرائع. هدفي هو إنشاء محتوى ممتع ومفيد يجمع بين الشغف والتكنولوجيا.</p>
+                        <p>أستخدم برنامج Gartic_Phone للرسم الرقمي، وأحب تجربة أساليب فنية مختلفة. أنشأت قناتي على اليوتيوب لتوثيق رحلتي الفنية ومشاركة نصائح وتقنيات الرسم مع المبتدئين والمحترفين على حد سواء.</p>
+                        
+                        <div class="hero-btns" style="margin-top: 30px;">
+                            <a href="https://www.youtube.com/@Mostafa-De-Elawady" target="_blank" class="btn btn-primary">
+                                <i class="fab fa-youtube"></i> قناتي على اليوتيوب
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="specs" class="page">
+        <div class="container">
+            <div class="section">
+                <div class="section-header">
+                    <h2>مواصفات جهازي</h2>
+                    <p>الأدوات التي أستخدمها في الرسم والبث</p>
+                </div>
+                
+                <div class="specs-grid">
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="spec-info">
+                            <h4>المعالج</h4>
+                            <p>Intel Core i5-3470 @ 3.20GHz</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                        <div class="spec-info">
+                            <h4>الذاكرة العشوائية</h4>
+                            <p>8GB DDR3</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="spec-info">
+                            <h4>كرت الشاشة</h4>
+                            <p>AMD Radeon R5 240</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-mouse"></i>
+                        </div>
+                        <div class="spec-info">
+                            <h4>الماوس</h4>
+                            <p>Fujitsu MA106U</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <div class="spec-info">
+                            <h4>لوحة المفاتيح</h4>
+                            <p>Dell</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <div class="spec-info">
+                            <h4>السماعات</h4>
+                            <p>Samsung</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="spec-info">
+                            <h4>برنامج الرسم</h4>
+                            <p>Gartic_Phone</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div class="spec-info">
+                            <h4>الميكروفون</h4>
+                            <p>غيرمعروف</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="donations" class="page">
+        <div class="container">
+            <div class="section">
+                <div class="section-header">
+                    <h2>دعم القناة</h2>
+                    <p>مساعدتك تمكنني من تطوير المحتوى وتحسين جودة البث</p>
+                </div>
+                
+                <div class="donation-content">
+                    <div class="donation-text">
+                        <h3>كيف يستخدم تبرعك؟</h3>
+                        <p>كل تبرع تقدمه يساهم بشكل مباشر في تطوير القناة وتحسين جودة المحتوى المقدم. مساعدتك تمكنني من:</p>
+                        
+                        <div class="benefits">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <div>
+                                    <h4>أدوات رسم أفضل</h4>
+                                    <p>شراء أجهزة لوحية وأقلام رقمية متطورة</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div>
+                                    <h4>تحسين جودة البث</h4>
+                                    <p>ترقية معدات البث لتحسين الصوت والصورة</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <div>
+                                    <h4>ترقية الأجهزة</h4>
+                                    <p>تحسين أداء الكمبيوتر لتشغيل البرامج الحديثة</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div>
+                                    <h4>محتوى ألعاب متنوع</h4>
+                                    <p>شراء ألعاب جديدة لتقديم محتوى متنوع</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="donation-methods">
+                            <div class="method-card">
+                                <i class="fab fa-youtube"></i>
+                                <h4>يوتيوب</h4>
+                                <p>الدعم عبر Super Chat</p>
+                                <a href="https://www.youtube.com/@Mostafa-De-Elawady" class="btn btn-primary" target="_blank">دعم الآن</a>
+                            </div>
+                            
+                            <div class="method-card">
+                                <i class="fab fa-twitch"></i>
+                                <h4>Twitch</h4>
+                                <p>التبرع عبر Bits</p>
+                                <a href="https://www.twitch.tv/mostafael3wady" class="btn btn-primary" target="_blank">دعم الآن</a>
+                            </div>
+                            
+                            <div class="method-card">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <h4>Streamlabs</h4>
+                                <p>منصة التبرع</p>
+                                <a href="https://streamlabs.com/mostafael3wady" class="btn btn-primary" target="_blank">دعم الآن</a>
+                            </div>
+                            
+                            <div class="method-card">
+                                <i class="fas fa-donate"></i>
+                                <h4>DokanTip</h4>
+                                <p>منصة التبرع</p>
+                                <a href="https://tip.dokan.sa/mostafaelawady" class="btn btn-primary" target="_blank">دعم الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="donation-visual">
+                        <h3>دعمك يلهمني ويشجعني على الاستمرار! 💜</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="stream" class="page">
+        <div class="container">
+            <div class="section">
+                <div class="section-header">
+                    <h2>البثوث المباشرة</h2>
+                    <p>انضم إليّ في رحلة الرسم والألعاب</p>
+                </div>
+                
+                <div class="stream-container">
+                    <div class="stream-info">
+                        <h3>جدول البثوث</h3>
+                        <p>حاليًا ليس لدي جدول بث ثابت، ولكنني أحاول أن أكون متواجدًا قدر الإمكان. تابع القناة وفعّل الجرس 🔔 لتصلك الإشعارات فور بدء البث!</p>
+                        
+                        <p>في بثوثي، أرسم لوحات فنية، ألعب ألعابًا ممتعة، وأتفاعل مع متابعيني الرائعين. الجو دائمًا مرح وممتع!</p>
+                        
+                        <div class="stream-schedule">
+                            <div class="schedule-item">
+                                <span>الرسم المباشر</span>
+                                <span> شبه يومي</span>
+                            </div>
+                            <div class="schedule-item">
+                                <span>جلسات الألعاب</span>
+                                <span>حسب الفرصة</span>
+                            </div>
+                            <div class="schedule-item">
+                                <span>التفاعل مع المتابعين</span>
+                                <span>دائمًا خلال البث</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-btns" style="margin-top: 30px;">
+                            <a href="https://www.youtube.com/@Mostafa-De-Elawady" target="_blank" class="btn btn-primary">
+                                <i class="fab fa-youtube"></i> قناة اليوتيوب
+                            </a>
+                            <a href="https://www.twitch.tv/mostafael3wady" target="_blank" class="btn btn-secondary">
+                                <i class="fab fa-twitch"></i> حساب التويتش
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="stream-visual">
+                        <div class="stream-overlay">
+                            <div class="live-badge">
+                                <i class="fas fa-circle"></i> LIVE NOW
+                            </div>
+                            <h3 style="font-size: 2.2rem; margin-bottom: 1rem; color: white;">جلسة الرسم الحية</h3>
+                            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: white;">انضم الآن وشاهد عملية الإبداع مباشرة!</p>
+                            <a href="https://www.twitch.tv/mostafael3wady" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-play"></i> شاهد البث المباشر
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-palette"></i> مصطفى<span>العوضي</span>
+                    </div>
+                    <p>فنان وستريمر مصري، أشارك شغفي بالرسم والألعاب مع مجتمع المتابعين الرائع. انضم إليّ في رحلة الإبداع!</p>
+                    <div class="social-icons">
+                        <a href="https://www.youtube.com/@Mostafa-De-Elawady" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.twitch.tv/mostafael3wady" target="_blank"><i class="fab fa-twitch"></i></a>
+                        <a href="https://discord.com/invite/gWWH33KPnm" target="_blank"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <div class="footer-links">
+                        <a href="#home" data-page="home"><i class="fas fa-chevron-left"></i> الرئيسية</a>
+                        <a href="#about" data-page="about"><i class="fas fa-chevron-left"></i> عني</a>
+                        <a href="#specs" data-page="specs"><i class="fas fa-chevron-left"></i> المواصفات</a>
+                        <a href="#donations" data-page="donations"><i class="fas fa-chevron-left"></i> الدعم</a>
+                        <a href="#stream" data-page="stream"><i class="fas fa-chevron-left"></i> البثوث</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>معلومات التواصل</h3>
+                    <div class="footer-links">
+                        <a href="mailto:mostafael3wady@gmail.com"><i class="fas fa-envelope"></i> mostafael3wady@gmail.com</a>
+                        <a href="#"><i class="fas fa-map-marker-alt"></i> مصر - القاهرة</a>
+                        <a href="#"><i class="fas fa-clock"></i> توقيت البث: حسب الإعلان</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2025 مصطفى العوضي - كل الحقوق محفوظة. تم التصميم بحب وإبداع
+            </div>
+        </div>
+    </footer>
+
+    <!-- رسالة النجاح -->
+    <div class="overlay" id="overlay"></div>
+    <div class="success-message" id="success-message">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h3>تم إرسال رسالتك بنجاح!</h3>
+        <p>شكرًا لتواصلك معي، سأرد عليك في أقرب وقت ممكن عبر البريد الإلكتروني mostafael3wady@gmail.com</p>
+        <button class="btn btn-primary" onclick="closeSuccessMessage()">حسنًا</button>
+    </div>
+
+    <div class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // إدارة التنقل بين الصفحات
+        const navLinks = document.querySelectorAll('.nav-link, .logo, .footer-links a');
+        const pages = document.querySelectorAll('.page');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.nav-links');
+        
+        function switchPage(targetPageId) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            document.getElementById(targetPageId).classList.add('active');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            document.querySelector(`[data-page="${targetPageId}"]`).classList.add('active');
+            
+            // إغلاق القائمة المتنقلة عند اختيار صفحة
+            mobileMenu.classList.remove('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = link.getAttribute('data-page');
+                switchPage(targetPage);
+            });
+        });
+
+        // فتح/إغلاق القائمة المتنقلة
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // التحكم في التمرير والظهور
+        function checkScroll() {
+            const scrollTop = window.scrollY;
+            const scrollTopBtn = document.getElementById('scroll-top');
+            
+            if (scrollTop > 500) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        checkScroll();
+        
+        const scrollTopBtn = document.getElementById('scroll-top');
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // التهيئة عند تحميل الصفحة
+        window.addEventListener('DOMContentLoaded', () => {
+            checkScroll();
+            switchPage('home');
+        });
+
+        // إدارة نموذج الاتصال باستخدام EmailJS
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+        const overlay = document.getElementById('overlay');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // جمع بيانات النموذج
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // إرسال البريد باستخدام EmailJS
+            emailjs.send('service_c2nbaxa', 'template_i4huyrj', {
+                to_email: 'mostafael3wady@gmail.com',
+                from_name: formData.name,
+                from_email: formData.email,
+                subject: formData.subject,
+                message: formData.message
+            })
+            .then(function(response) {
+                // إظهار رسالة النجاح
+                successMessage.style.display = 'block';
+                overlay.style.display = 'block';
+                
+                // إعادة تعيين النموذج
+                contactForm.reset();
+            }, function(error) {
+                alert('حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.');
+                console.error('فشل في إرسال البريد:', error);
+            });
+        });
+
+        // إغلاق رسالة النجاح
+        function closeSuccessMessage() {
+            successMessage.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+        
+        // إغلاق الرسالة عند النقر خارجها
+        overlay.addEventListener('click', closeSuccessMessage);
+    </script>
+</body>
+</html>
